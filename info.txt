@@ -1,0 +1,53 @@
+ Setup by ssh 
+
+
+1.  Generate key - Run in terminal
+
+a. ssh-keygen -t ed25519 -C "your_email@example.com"
+b. Accept default location 
+c. Skip passpharse
+
+2.  cat ~/.ssh/id_ed25519.pub - Run in terminal - Find the code by command 
+
+
+a. Code will look like this -
+b. ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINoJ/uRIXBsrFrk6fWmn9DF+9U6/llCEZu/6RXavxmiE ombilthere953@gmail.com
+c. Copy the code
+
+
+3. Go to Github - Setting - SSH and GPG keys - New SSH key
+a. Give title
+b. paste about copied code
+c. save
+
+4. Set Remote URL SSH -
+
+a. open repo - green button written code - SSH - copy ssh code
+b. git remote add origin < paste above ssh code >
+
+5. If remote already Exist - (check by git remote -v )
+
+a. git remote remove origin
+b. git remote add origin < paste above ssh code >
+
+c. if the remote exist and we want to change -
+d. git remote set-url origin git@github.com:OmBilthere/Learning-Git-Github.git
+
+
+6. Host verification
+
+a. ssh-keyscan github.com >> $env:USERPROFILE\.ssh\known_hosts
+b. ssh -T git@github.com
+
+
+
+
+c. notification of success
+
+7. Completed process now use to push -
+
+git add .
+git commit -m "message"
+git push -u origin main (main or master whatever is the name of branch)
+
+--------------------------------------------------------------------------------------------
